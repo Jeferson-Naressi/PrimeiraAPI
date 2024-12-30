@@ -7,7 +7,7 @@ namespace PrimeiraAPI.Controllers
     public class TesteController : ControllerBase
     {
         [HttpGet]
-        [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)] 
+        [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)] //Formatadores de resposta*
         public IActionResult Get()
         {
             return Ok(new Produto { Id = 1, Nome ="Teste"});
@@ -15,8 +15,8 @@ namespace PrimeiraAPI.Controllers
 
 
         [HttpGet("{Id:int}")]
-        [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(Produto), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)] 
+        [ProducesResponseType(StatusCodes.Status404NotFound)] 
         public IActionResult Get(int id)
         {
             return Ok(new Produto { Id = 1, Nome = "Teste"});
@@ -24,6 +24,8 @@ namespace PrimeiraAPI.Controllers
 
 
         [HttpPost]
+        [ProducesResponseType(typeof(Produto), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Post(Produto produto)
         {
             return CreatedAtAction("Get", new {id = produto.Id}, produto);
@@ -31,13 +33,18 @@ namespace PrimeiraAPI.Controllers
 
 
         [HttpPut("{Id:int}")]
+        [ProducesResponseType(typeof(Produto), StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
         public IActionResult Put(int id, Produto produto)
         {
             if (id != produto.Id) return BadRequest();
             return NoContent();
         }
 
+
         [HttpDelete("{Id:int}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Delete(int id)
         {
             //if (id != produto.Id) return BadRequest();
