@@ -73,13 +73,22 @@ PrimeiraAPI/
 
 ## 📌 Endpoints da API
 
-| Método  | Rota            | Descrição                 |
-|---------|----------------|---------------------------|
-| GET     | /api/itens      | Retorna todos os itens   |
-| GET     | /api/itens/{id} | Retorna um item pelo ID |
-| POST    | /api/itens      | Adiciona um novo item   |
-| PUT     | /api/itens/{id} | Atualiza um item        |
-| DELETE  | /api/itens/{id} | Remove um item         |
+A API possui um controlador chamado `TesteController` que gerencia um recurso chamado `Produto`. Abaixo estão os endpoints disponíveis:
+
+| Método  | Rota                | Descrição                 |
+|---------|---------------------|---------------------------|
+| GET     | /Api/Produtos       | Retorna um produto de teste   |
+| GET     | /Api/Produtos/{id}  | Retorna um produto pelo ID |
+| POST    | /Api/Produtos       | Adiciona um novo produto   |
+| PUT     | /Api/Produtos/{id}  | Atualiza um produto        |
+| DELETE  | /Api/Produtos/{id}  | Remove um produto         |
+
+Cada endpoint possui **códigos de resposta apropriados**, como:
+- **200 OK** para requisições bem-sucedidas.
+- **201 Created** ao criar um novo produto.
+- **400 Bad Request** quando os dados fornecidos não são válidos.
+- **404 Not Found** quando o recurso solicitado não existe.
+- **204 No Content** quando a operação é concluída sem retorno de conteúdo.
 
 ## 🚀 Melhorias Futuras
 
@@ -101,4 +110,3 @@ Se quiser contribuir com o projeto, siga os passos:
 📌 **Criado por [Jeferson Naressi](https://github.com/Jeferson-Naressi)**
 
 🛠 **Projeto em evolução!** 🚀
-
